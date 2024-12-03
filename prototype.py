@@ -6,7 +6,7 @@
 # iterate and calculate distance
 # Sum of list
 
-input = open("src/input.txt").read()
+input = open("input.txt").read()
 lines = input.split("\n")
 left = []
 right = []
