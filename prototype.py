@@ -6,22 +6,21 @@
 # iterate and calculate distance
 # Sum of list
 
+import re
+
 input = open("input.txt").read()
-lines = input.split("\n")
-left = []
-right = []
-for line in lines:
-    locations = line.split("   ")
-    left.append(int(locations[0]))
-    right.append(int(locations[1]))
+
+locationsFlat = re.split(r'\s{3}|\n', input)
+left = locationsFlat[0::2]
+right = locationsFlat[1::2]
 
 left.sort()
 right.sort()
 
-distances = [None] * len(lines)
-
-for i in range(len(lines)):
-    distances[i] = abs(left[i] - right[i])
+distances = []
+for i in range(len(left)):
+    distance = abs(int(left[i]) - int(right[i]))
+    distances.append(distance)
 
 distance = sum(distances)
 print(distance)
